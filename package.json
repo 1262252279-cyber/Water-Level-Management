@@ -1,0 +1,9 @@
+{
+  "name": "water-level-dashboard-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local dashboard and telemetry API for UART water level monitoring.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

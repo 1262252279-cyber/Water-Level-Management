@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Level Management Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <div>
+          <p class="eyebrow">UART Monitor</p>
+          <h1>Water Level Control</h1>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link active" href="#overview">Overview</a>
+        <a class="nav-link" href="#performance">Tank Trend</a>
+        <a class="nav-link" href="#pipeline">Pump Logic</a>
+        <a class="nav-link" href="#team">UART Feed</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+
+      <section class="spotlight-card">
+        <p class="eyebrow">System Pulse</p>
+        <h2>Tank is stable and pump control is synced.</h2>
+        <p id="system-summary">UART packets are healthy, refill logic is armed, and the reservoir is above the low-level threshold.</p>
+        <div class="control-stack">
+          <button type="button" id="connect-button">Connect UART</button>
+          <button type="button" id="disconnect-button" class="ghost-button">Disconnect</button>
+        </div>
+        <p class="support-note" id="support-note">Use Chrome or Edge, then choose your USB serial device to stream live data.</p>
+      </section>
+    </aside>
+
+    <main class="main-panel">
+      <header class="hero" id="overview">
+        <div>
+          <p class="eyebrow">Embedded + Monitoring</p>
+          <h2>Water level management using UART</h2>
+          <p class="hero-copy">
+            Watch tank level, pump state, sensor health, and serial telemetry in one live control view built for an embedded system demo.
+          </p>
+          <div class="hero-stickers">
+            <span>uart live</span>
+            <span>pump ready</span>
+            <span>tank safe</span>
+          </div>
+        </div>
+
+        <div class="hero-pill">
+          <span class="status-dot"></span>
+          <span id="connection-label">Serial disconnected</span>
+        </div>
+      </header>
+
+      <section class="metrics-grid">
+        <article class="metric-card accent-coral">
+          <p>Current Level</p>
+          <h3 id="level-value">68%</h3>
+          <span id="level-note">Reservoir is above refill threshold</span>
+        </article>
+
+        <article class="metric-card accent-gold">
+          <p>Pump State</p>
+          <h3 id="pump-value">OFF</h3>
+          <span id="pump-note">Auto mode waiting for low-level event</span>
+        </article>
+
+        <article class="metric-card accent-teal">
+          <p>UART Baud</p>
+          <h3 id="baud-value">38400</h3>
+          <span id="baud-note">Stable two-way serial communication</span>
+        </article>
+
+        <article class="metric-card accent-ink">
+          <p>Alert Status</p>
+          <h3 id="alert-value">NORMAL</h3>
+          <span id="alert-note">No overflow or dry-run risk detected</span>
+        </article>
+      </section>
+
+      <section class="content-grid" id="performance">
+        <article class="panel chart-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Tank History</p>
+              <h3>Water level trend</h3>
+            </div>
+            <span class="tag positive">stable fill</span>
+          </div>
+
+          <div class="chart" aria-label="Water level chart">
+            <div class="chart-bars" id="chart-bars"></div>
+            <div class="chart-labels">
+              <span>08:00</span>
+              <span>10:00</span>
+              <span>12:00</span>
+              <span>14:00</span>
+              <span>16:00</span>
+              <span>18:00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel split-panel" id="pipeline">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Control Logic</p>
+              <h3>Pump cycle breakdown</h3>
+            </div>
+          </div>
+
+          <div class="donut-layout">
+            <div class="donut-wrap">
+              <div class="donut">
+                <div class="donut-hole">
+                  <strong id="fill-percent">68%</strong>
+                  <span id="fill-label">tank filled</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div>
+                <span class="legend-swatch swatch-coral"></span>
+                Safe range
+                <strong>38%</strong>
+              </div>
+              <div>
+                <span class="legend-swatch swatch-gold"></span>
+                Warning band
+                <strong>27%</strong>
+              </div>
+              <div>
+                <span class="legend-swatch swatch-teal"></span>
+                Refill zone
+                <strong>35%</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel table-panel" id="team">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">UART Feed</p>
+              <h3>Latest serial packets</h3>
+            </div>
+          </div>
+
+          <div class="table">
+            <div class="table-row table-head">
+              <span>Packet</span>
+              <span>Value</span>
+              <span>Flag</span>
+              <span>Status</span>
+            </div>
+            <div class="table-row">
+              <span>LEVEL</span>
+              <span id="packet-level-value">68%</span>
+              <span id="packet-level-flag">0x21</span>
+              <span class="chip" id="packet-level-status">Clean</span>
+            </div>
+            <div class="table-row">
+              <span>PUMP</span>
+              <span id="packet-pump-value">OFF</span>
+              <span id="packet-pump-flag">0x10</span>
+              <span class="chip" id="packet-pump-status">Idle</span>
+            </div>
+            <div class="table-row">
+              <span>SENSOR</span>
+              <span id="packet-sensor-value">OK</span>
+              <span id="packet-sensor-flag">0x33</span>
+              <span class="chip" id="packet-sensor-status">Healthy</span>
+            </div>
+            <div class="table-row">
+              <span>ALERT</span>
+              <span id="packet-alert-value">NONE</span>
+              <span id="packet-alert-flag">0x00</span>
+              <span class="chip" id="packet-alert-status">Quiet</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel activity-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Event Log</p>
+              <h3>Recent control actions</h3>
+            </div>
+          </div>
+
+          <div class="activity-list">
+            <div class="activity-item">
+              <strong id="event-title-1">Low-level interrupt cleared</strong>
+              <span id="event-body-1">Water level recovered above the refill threshold.</span>
+            </div>
+            <div class="activity-item">
+              <strong id="event-title-2">Pump auto-stop executed</strong>
+              <span id="event-body-2">Controller disabled relay after target level was reached.</span>
+            </div>
+            <div class="activity-item">
+              <strong id="event-title-3">UART frame validated</strong>
+              <span id="event-body-3">Checksum passed on the latest telemetry packet.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

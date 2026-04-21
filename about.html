@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About The Project Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <div>
+          <p class="eyebrow">Project Story</p>
+          <h1>About The Team</h1>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Dashboard</a>
+        <a class="nav-link active" href="#about-overview">About</a>
+        <a class="nav-link" href="#team-slider">People</a>
+        <a class="nav-link" href="#individual-works">Works</a>
+        <a class="nav-link" href="#project-notes">Project Notes</a>
+      </nav>
+
+      <section class="spotlight-card">
+        <p class="eyebrow">Project Vibe</p>
+        <h2>Smart water control with a team behind it.</h2>
+        <p>This page highlights the people involved in the UART-based water level management project and the role the project plays.</p>
+        <a class="page-button" href="index.html">Back To Dashboard</a>
+      </section>
+    </aside>
+
+    <main class="main-panel">
+      <header class="hero about-hero" id="about-overview">
+        <div>
+          <p class="eyebrow">Meet The Builders</p>
+          <h2>People behind the water level management project</h2>
+          <p class="hero-copy">
+            This system brings together sensing, UART communication, motor control, and a bold monitoring dashboard. Here is the team involved in making it happen.
+          </p>
+        </div>
+
+        <div class="hero-pill">
+          <span class="status-dot"></span>
+          Team showcase
+        </div>
+      </header>
+
+      <section class="panel team-slider-panel" id="team-slider">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Sliding Cards</p>
+            <h3>People involved in this project</h3>
+          </div>
+          <div class="slider-dots" aria-label="Team slider controls">
+            <button class="slider-dot active" data-slide="0" aria-label="Ayush S. Dumane"></button>
+            <button class="slider-dot" data-slide="1" aria-label="Om Kore"></button>
+            <button class="slider-dot" data-slide="2" aria-label="Sakshi Nahair"></button>
+          </div>
+        </div>
+
+        <div class="team-slider-window">
+          <div class="team-slider-track" id="team-slider-track">
+            <article class="team-card">
+              <div class="team-badge">01</div>
+              <p class="eyebrow">First Member</p>
+              <h3 class="team-name"><span>AYUSH .S. DUMANE</span></h3>
+              <p class="team-role">Embedded Systems, dashboard, and system integration</p>
+              <p class="team-copy">
+                Focused on the core system direction, firmware workflow, UART-based communication, and overall project integration.
+              </p>
+            </article>
+
+            <article class="team-card">
+              <div class="team-badge">02</div>
+              <p class="eyebrow">Second Member</p>
+              <h3 class="team-name"><span>OM KORE</span></h3>
+              <p class="team-role">Hardware and Control Support</p>
+              <p class="team-copy">
+                Contributed to the sensor-control side of the build, motor handling logic, and practical system connectivity.
+              </p>
+            </article>
+
+            <article class="team-card">
+              <div class="team-badge">03</div>
+              <p class="eyebrow">Third Member</p>
+              <h3 class="team-name"><span>SAKSHI NAHAIR</span></h3>
+              <p class="team-role">Documentation and System Presentation</p>
+              <p class="team-copy">
+                Helped shape the project presentation, documentation clarity, and communication of the system flow and outcomes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel works-panel" id="individual-works">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Individual Works</p>
+            <h3>Contribution highlights</h3>
+          </div>
+        </div>
+
+        <div class="works-grid">
+          <article class="work-card work-card-ayush">
+            <div class="work-topline">
+              <span class="work-number">01</span>
+              <span class="work-tag">Core Build</span>
+            </div>
+            <p class="eyebrow">AYUSH .S. DUMANE</p>
+            <h3>Software, dashboard, and system integration</h3>
+            <ul class="works-list">
+              <li>Developed the firmware flow for ultrasonic sensing and UART transmission.</li>
+              <li>Integrated water level calculation, health monitoring, and motor decision logic.</li>
+              <li>Worked with Sakshi on communication of UART for project data flow.</li>
+              <li>Built the dashboard interface as a solo contribution.</li>
+              <li>Handled overall project coordination and embedded software structure.</li>
+              <li>Connected live telemetry output with the dashboard and API flow.</li>
+            </ul>
+          </article>
+
+          <article class="work-card work-card-om">
+            <div class="work-topline">
+              <span class="work-number">02</span>
+              <span class="work-tag">Control Side</span>
+            </div>
+            <p class="eyebrow">OM KORE</p>
+            <h3>Hardware and control logic</h3>
+            <ul class="works-list">
+              <li>Supported hardware-side setup for the sensor, motor output, and wiring flow.</li>
+              <li>Worked with Sakshi on interfacing the HC-SR04 ultrasonic sensor.</li>
+              <li>Worked on practical control logic between measured level and motor response.</li>
+              <li>Helped validate stable operation between ultrasonic readings and pump behavior.</li>
+              <li>Contributed to testing the real-time system response in the working model.</li>
+            </ul>
+          </article>
+
+          <article class="work-card work-card-sakshi">
+            <div class="work-topline">
+              <span class="work-number">03</span>
+              <span class="work-tag">Presentation</span>
+            </div>
+            <p class="eyebrow">SAKSHI NAHAIR</p>
+            <h3>Presentation, UART communication, and support</h3>
+            <ul class="works-list">
+              <li>Supported project explanation, documentation clarity, and presentation structure.</li>
+              <li>Contributed to system presentation for the overall project showcase.</li>
+              <li>Worked on communication using UART as part of the system workflow.</li>
+              <li>Worked with Ayush on communication of UART in the system workflow.</li>
+              <li>Worked with Om on interfacing the HC-SR04 sensor module.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel" id="project-notes">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Key Highlights</p>
+              <h3>Project notes</h3>
+            </div>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <strong>UART live telemetry</strong>
+              <span>Continuous serial updates for level, sensor health, and motor state.</span>
+            </div>
+            <div class="activity-item">
+              <strong>Automatic motor logic</strong>
+              <span>The pump turns on or off depending on the detected water distance.</span>
+            </div>
+            <div class="activity-item">
+              <strong>Modern dashboard layer</strong>
+              <span>Readable controls, live cards, and API integration for smoother demos.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="about.js"></script>
+</body>
+</html>
